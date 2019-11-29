@@ -4,12 +4,16 @@ import logging
 HELLO_WORLD = b'Hello world!\n'
 
 # if you open the initializer feature, please implement the initializer function, as below:
-# def initializer(context):
-#    logger = logging.getLogger()  
-#    logger.info('initializing')
-
+def initializer(context):
+    logger = logging.getLogger()
+    logger.info('initializing')
 
 def handler(environ, start_response):
+
+    logger = logging.getLogger()
+    logger.info('handler executed')
+    logger.info('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+
     context = environ['fc.context']
     request_uri = environ['fc.request_uri']
     for k, v in environ.items():
